@@ -22,7 +22,8 @@ public class Emprestimo {
     @Column(name = "status")
     private String status;
 
-    @OneToMany
+    @OneToMany(mappedBy = "emprestimo")
     private List<Parcela> parcelas;
+    @ManyToMany()
     private List<Pessoa> pessoas;
 }
