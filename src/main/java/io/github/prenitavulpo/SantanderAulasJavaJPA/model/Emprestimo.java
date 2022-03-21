@@ -22,6 +22,7 @@ public class Emprestimo {
     @Column(name = "status")
     private String status;
 
+    @OneToMany
     private List<Parcela> parcelas;
     private List<Pessoa> pessoas;
 }
