@@ -12,15 +12,17 @@ import java.util.List;
 public class Pessoa {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private String id;
-    @Column(name = "nome", length = 100, nullable = false)
-    private String nome;
-    @Column(name = "cpf", length = 11)
-    private String cpf;
-    @Column(name = "salario")
-    private float salario;
-    @Column(name = "endereco")
-    private String endereco;
+    private Integer id;
 
+    @Column(name = "nome")
+    private String nome;
+
+    @Column(name = "cpf")
+    private String cpf;
+
+    @Column(name = "salario")
+    private Float salario;
+
+    @ManyToMany(mappedBy = "pessoas", fetch = FetchType.EAGER)
     private List<Emprestimo> emprestimos;
 }

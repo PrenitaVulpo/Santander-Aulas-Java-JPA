@@ -4,6 +4,7 @@ import lombok.Getter;
 import lombok.Setter;
 
 import javax.persistence.*;
+import java.time.LocalDateTime;
 
 @Getter
 @Setter
@@ -11,19 +12,21 @@ import javax.persistence.*;
 public class Parcela {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private String id;
-    @Column(name="valor")
-    private float valor;
-    @Column(name="num")
-    private int num;
-    @Column(name="status")
+    private Integer id;
+
+    @Column(name = "valor")
+    private Float valor;
+
+    @Column(name = "num")
+    private Integer num;
+
+    @Column(name = "data_pagamento")
+    private LocalDateTime dataPagamento;
+
+    @Column(name = "status")
     private String status;
-    @Column(name="data_pagamento")
-    private String dataPagamento;
-    @Column(name="id_emprestimo")
-    private int idEmprestimo;
 
     @ManyToOne
-    @JoinColumn(name="id_emprestimo")
+    @JoinColumn(name = "id_emprestimo")
     private Emprestimo emprestimo;
 }
