@@ -22,8 +22,15 @@ public class Emprestimo {
     @Column(name = "status")
     private String status;
 
-    @OneToMany(mappedBy = "emprestimo")
+    @OneToMany(mappedBy = "emprestimo"
+//            , fetch = FetchType.EAGER,cascade = CascadeType.ALL
+    )
     private List<Parcela> parcelas;
-    @ManyToMany()
+    @ManyToMany
+    @JoinTable(
+            name = "pessoa_emprestimo",
+            joinColumns = {@JoinColumn(name = "id_emprestimo")},
+            inverseJoinColumns = {@JoinColumn(name = "id_pessoa")}
+    )
     private List<Pessoa> pessoas;
 }
