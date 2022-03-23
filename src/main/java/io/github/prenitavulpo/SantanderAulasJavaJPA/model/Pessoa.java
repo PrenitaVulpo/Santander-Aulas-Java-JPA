@@ -1,13 +1,15 @@
 package io.github.prenitavulpo.SantanderAulasJavaJPA.model;
 
-import lombok.Getter;
-import lombok.Setter;
+import lombok.*;
 
 import javax.persistence.*;
 import java.util.List;
 
 @Getter
 @Setter
+@Builder
+@NoArgsConstructor
+@RequiredArgsConstructor
 @Entity(name = "pessoa")
 public class Pessoa {
     @Id
@@ -22,6 +24,9 @@ public class Pessoa {
 
     @Column(name = "salario")
     private Float salario;
+
+    @Column(name = "endereco")
+    private String endereco;
 
     @ManyToMany(mappedBy = "pessoas", fetch = FetchType.EAGER)
     private List<Emprestimo> emprestimos;

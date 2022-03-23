@@ -1,13 +1,15 @@
 package io.github.prenitavulpo.SantanderAulasJavaJPA.model;
 
-import lombok.Getter;
-import lombok.Setter;
+import lombok.*;
 
 import javax.persistence.*;
 import java.time.LocalDateTime;
 
 @Getter
 @Setter
+@Builder
+@NoArgsConstructor
+@RequiredArgsConstructor
 @Entity(name="parcela")
 public class Parcela {
     @Id
